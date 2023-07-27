@@ -1,7 +1,7 @@
 'use strict';
 
 const base64 = require('base-64');
-const { users } = require('/Users/rhettbeardemphl/Desktop/Code Projects/auth-api/src/models/index.js');
+const { users } = require('../../models/index'); //'.../models/index.js'
 
 module.exports = async (req, res, next) => {
 

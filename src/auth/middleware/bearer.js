@@ -1,6 +1,6 @@
 'use strict';
 
-const { users } = require('/Users/rhettbeardemphl/Desktop/Code Projects/auth-api/src/models/index.js')
+const { users } = require('../../models/index');
 
 module.exports = async (req, res, next) => {
 
