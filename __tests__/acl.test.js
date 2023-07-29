@@ -45,8 +45,8 @@ describe('ACL Integration', () => {
       .send({ name: 'banana', calories: 100, type: 'fruit' })
       .set('Authorization', `Bearer ${testWriter.token}`);
     expect(res.status).toBe(201);
-    expect(res._body.name).toEqual('banana');
-    expect(res._body.id).toEqual(1);
+    expect(res.body.name).toEqual('banana');
+    expect(res.body.id).toEqual(1);
   });
 
   test('the user with writer capabilities should NOT be able to update a model', async () => {
@@ -55,7 +55,7 @@ describe('ACL Integration', () => {
       .send({ name: 'coconut', calories: 200, type: 'fruit' })
       .set('Authorization', `Bearer ${testWriter.token}`);
     expect(res.status).toBe(500);
-    expect(res._body.message).toEqual('Access Denied');
+    expect(res.body.message).toEqual('Access Denied');
   });
 
   test('the user with admin capabilities should be able to update a model', async () => {
@@ -64,7 +64,7 @@ describe('ACL Integration', () => {
       .send({ name: 'coconut', calories: 200, type: 'fruit' })
       .set('Authorization', `Bearer ${testAdmin.token}`);
     expect(res.status).toBe(200);
-    expect(res._body.name).toEqual('coconut');
+    expect(res.body.name).toEqual('coconut');
   });
 
   test('the user with admin capabilities should be able to delete a model', async () => {
