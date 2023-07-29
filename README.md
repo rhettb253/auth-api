@@ -6,8 +6,8 @@
 
 ### Servers
 
-api-server is a fully functional API server that performs CRUD operations via REST.
-auth-server is a fully functional Auth server, capable of adding users, logging users in, and providing middleware that can be used to protect any route.
+The api-server is a fully functional API server that performs CRUD operations via REST.
+The auth-server is a fully functional Auth server, capable of adding users, logging users in, and providing middleware that can be used to protect any route.
 
 ### Task 1: Combine these 2 servers into a single server
 
@@ -33,3 +33,18 @@ app.delete(...) should require both a bearer token and the delete capability.
 Full Test Coverage.
 Well executed UML and WRRC Diagrams.
 Polished and Complete Developer Friendly README.md at the root of your repo.
+
+### Tests
+
+#### account creation and sign in works appropriately
+
+- signup creates new user and sends an object with the user & token back
+- signin w basic auth headers logs in a user & sends a resObj back
+
+#### ACL Integration
+
+- the user should be able to get a resource
+- the user with writer capabilities should be able to create a model
+- the user with writer capabilities should NOT be able to update a model
+- the user with admin capabilities should be able to update a model
+- the user with admin capabilities should be able to delete a model
